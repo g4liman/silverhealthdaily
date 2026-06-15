@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { SITE } from '../lib/site';
+import { CATEGORY_IMAGES } from '../lib/media';
 ---
 
 <BaseLayout title="Contact" description={`Contact ${SITE.name}.`}>
+  <PageHero
+    image={CATEGORY_IMAGES.wellness}
+    label="Get in touch"
+    title="Contact us"
+    description="Questions, feedback, or correction requests — we read every message."
+  />
+
   <div class="prose mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <h1>Contact us</h1>
     <p>For general inquiries, feedback, or correction requests:</p>
     <p>
       <strong>Email:</strong>{' '}

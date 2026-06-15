@@ -57,9 +57,8 @@ const jsonLd = {
         categoryMeta && (
           <a
             href={`/category/${categoryMeta.slug}`}
-            class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/25"
+            class="mb-4 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/25"
           >
-            <span>{categoryMeta.icon}</span>
             {categoryMeta.name}
           </a>
         )
@@ -123,25 +122,25 @@ const jsonLd = {
             <li>
               <a
                 href="/tools/bmi-calculator"
-                class="flex items-center gap-2 rounded-lg px-3 py-2.5 font-medium text-ink-soft transition hover:bg-sage-50 hover:text-sage-800"
+                class="block rounded-lg px-3 py-2.5 font-medium text-ink-soft transition hover:bg-sage-50 hover:text-sage-800"
               >
-                ⚖️ BMI Calculator
+                BMI Calculator
               </a>
             </li>
             <li>
               <a
                 href="/tools/water-intake-calculator"
-                class="flex items-center gap-2 rounded-lg px-3 py-2.5 font-medium text-ink-soft transition hover:bg-sage-50 hover:text-sage-800"
+                class="block rounded-lg px-3 py-2.5 font-medium text-ink-soft transition hover:bg-sage-50 hover:text-sage-800"
               >
-                💧 Water Intake
+                Water Intake
               </a>
             </li>
             <li>
               <a
                 href="/tools/walking-calorie-calculator"
-                class="flex items-center gap-2 rounded-lg px-3 py-2.5 font-medium text-ink-soft transition hover:bg-sage-50 hover:text-sage-800"
+                class="block rounded-lg px-3 py-2.5 font-medium text-ink-soft transition hover:bg-sage-50 hover:text-sage-800"
               >
-                🚶 Walking Calories
+                Walking Calories
               </a>
             </li>
           </ul>

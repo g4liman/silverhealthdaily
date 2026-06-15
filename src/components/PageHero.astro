@@ -1,0 +1,40 @@
+---
+import { heroSrc, type ImageAsset } from '../lib/media';
+
+interface Props {
+  image: ImageAsset;
+  label?: string;
+  title: string;
+  description?: string;
+  dark?: boolean;
+}
+
+const { image, label, title, description, dark = true } = Astro.props;
+const src = heroSrc(image, 1600);
+---
+
+<header class="relative overflow-hidden">
+  <img
+    src={src}
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover"
+    width="1600"
+    height="640"
+    aria-hidden="true"
+    loading="eager"
+  />
+  <div class="absolute inset-0 bg-gradient-to-r from-sage-900/92 via-sage-900/80 to-sage-900/55" />
+  <div class="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-18 lg:py-20">
+    {label && <p class:list={['section-label', dark && '!text-gold-light']}>{label}</p>}
+    <h1 class:list={['font-display text-3xl font-bold sm:text-4xl lg:text-5xl', dark ? 'text-white' : 'text-ink']}>
+      {title}
+    </h1>
+    {
+      description && (
+        <p class:list={['mt-4 max-w-2xl text-lg leading-relaxed', dark ? 'text-white/85' : 'text-muted']}>
+          {description}
+        </p>
+      )
+    }
+  </div>
+</header>

@@ -3,7 +3,7 @@ export const SITE = {
   tagline: 'Live well at every age',
   url: 'https://silverhealthdaily.com',
   description:
-    'Warm, practical health guides and free tools for adults 50+. Nutrition, movement, sleep, and heart health — written to be read in minutes, not medical textbooks.',
+    'Warm, practical health guides and free tools for everyday wellness. Nutrition, movement, sleep, and heart health — written to be read in minutes, not medical textbooks.',
   email: 'hello@silverhealthdaily.com',
   locale: 'en_US',
 } as const;
@@ -52,7 +52,7 @@ export const CATEGORIES = [
   {
     slug: 'wellness',
     name: 'Wellness',
-    description: 'Everyday habits, balance, and holistic health after 50.',
+    description: 'Everyday habits, balance, and holistic health for the whole family.',
     icon: '✨',
     gradient: 'from-amber-500 via-orange-500 to-amber-700',
     tint: 'bg-amber-50 text-amber-900 ring-amber-200',
@@ -75,7 +75,7 @@ export const NAV_LINKS = [
 
 export const TRUST_POINTS = [
   'Easy-to-read guides',
-  'Built for adults 50+',
+  'Evidence-informed guides',
   'Free health calculators',
   'Updated regularly',
 ] as const;

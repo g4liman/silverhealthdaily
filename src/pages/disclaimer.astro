@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { SITE } from '../lib/site';
+import { CATEGORY_IMAGES } from '../lib/media';
 ---
 
 <BaseLayout title="Medical Disclaimer" description={`Medical disclaimer for ${SITE.name}.`}>
+  <PageHero
+    image={CATEGORY_IMAGES['heart-health']}
+    label="Important"
+    title="Medical Disclaimer"
+    description="Educational content only — not a substitute for professional medical advice."
+  />
+
   <div class="prose mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <h1>Medical Disclaimer</h1>
     <p>
       The information on {SITE.name} is for general educational purposes only. It is not
       intended to diagnose, treat, cure, or prevent any disease or health condition.

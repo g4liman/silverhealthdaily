@@ -1,24 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ToolCard from '../../components/ToolCard.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
-import { TOOL_IMAGES } from '../../lib/media';
+import PageHero from '../../components/PageHero.astro';
+import { TOOL_IMAGES, PAGE_HEROES } from '../../lib/media';
 ---
 
 <BaseLayout
   title="Free Health Tools"
-  description="Free BMI, water intake, and walking calorie calculators for adults 50+."
+  description="Free BMI, water intake, and walking calorie calculators for everyday health."
 >
-  <section class="border-b border-sage-100 bg-gradient-to-b from-sage-50 to-cream py-14">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <SectionHeading
-        label="Calculators"
-        title="Free health tools"
-        description="Simple calculators to support everyday wellness. Results are estimates — not medical advice."
-        centered
-      />
-    </div>
-  </section>
+  <PageHero
+    image={PAGE_HEROES.tools}
+    label="Calculators"
+    title="Free health tools"
+    description="Simple calculators to support everyday wellness. Results are estimates — not medical advice."
+  />
 
   <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -26,25 +22,22 @@ import { TOOL_IMAGES } from '../../lib/media';
         title="BMI Calculator"
         description="Calculate body mass index with plain-language results."
         href="/tools/bmi-calculator"
-        icon="⚖️"
-        accent="from-emerald-600 to-teal-700"
         image={TOOL_IMAGES.bmi.src}
+        imageAlt={TOOL_IMAGES.bmi.alt}
       />
       <ToolCard
         title="Water Intake Calculator"
         description="Estimate how much water to drink daily."
         href="/tools/water-intake-calculator"
-        icon="💧"
-        accent="from-sky-600 to-blue-700"
         image={TOOL_IMAGES.water.src}
+        imageAlt={TOOL_IMAGES.water.alt}
       />
       <ToolCard
         title="Walking Calorie Calculator"
         description="Estimate calories burned while walking."
         href="/tools/walking-calorie-calculator"
-        icon="🚶"
-        accent="from-amber-500 to-orange-600"
         image={TOOL_IMAGES.walking.src}
+        imageAlt={TOOL_IMAGES.walking.alt}
       />
     </div>
   </div>

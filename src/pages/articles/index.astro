@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
+import PageHero from '../../components/PageHero.astro';
 import ScrollReveal from '../../components/ScrollReveal.astro';
 import { getCollection } from 'astro:content';
-import { HERO } from '../../lib/media';
+import { PAGE_HEROES } from '../../lib/media';
 
 const articles = (await getCollection('articles')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
@@ -12,26 +12,15 @@ const articles = (await getCollection('articles')).sort(
 ---
 
 <BaseLayout
-  title="Health Articles for Adults 50+"
-  description="Browse nutrition, fitness, sleep, and heart health guides written for adults 50 and older."
+  title="Health Articles & Guides"
+  description="Browse nutrition, fitness, sleep, and heart health guides — clear advice for everyday wellness."
 >
-  <header class="relative overflow-hidden">
-    <img
-      src={HERO.src}
-      alt=""
-      class="absolute inset-0 h-full w-full object-cover"
-      aria-hidden="true"
-    />
-    <div class="absolute inset-0 bg-gradient-to-r from-sage-900/92 to-sage-900/70" />
-    <div class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <SectionHeading
-        label="Library"
-        title="All health guides"
-        description="Evidence-informed articles updated regularly. Always discuss changes with your healthcare provider."
-        dark
-      />
-    </div>
-  </header>
+  <PageHero
+    image={PAGE_HEROES.articles}
+    label="Library"
+    title="All health guides"
+    description="Evidence-informed articles updated regularly. Always discuss changes with your healthcare provider."
+  />
 
   <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

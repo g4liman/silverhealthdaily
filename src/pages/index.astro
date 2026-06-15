@@ -11,7 +11,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import ScrollReveal from '../components/ScrollReveal.astro';
 import { getCollection } from 'astro:content';
 import { SITE, CATEGORIES, TRUST_POINTS } from '../lib/site';
-import { TOOL_IMAGES, HERO } from '../lib/media';
+import { TOOL_IMAGES, CATEGORY_IMAGES } from '../lib/media';
 
 const articles = (await getCollection('articles'))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
@@ -135,11 +135,10 @@ const articleCount = articles.length;
         <ScrollReveal delay={0}>
           <ToolCard
             title="BMI Calculator"
-            description="Check your body mass index with context that makes sense after 50."
+            description="Check your body mass index with plain-language context you can actually use."
             href="/tools/bmi-calculator"
-            icon="⚖️"
-            accent="from-emerald-600 to-teal-700"
             image={TOOL_IMAGES.bmi.src}
+            imageAlt={TOOL_IMAGES.bmi.alt}
           />
         </ScrollReveal>
         <ScrollReveal delay={100}>
@@ -147,9 +146,8 @@ const articleCount = articles.length;
             title="Water Intake"
             description="Estimate how much water your body needs daily."
             href="/tools/water-intake-calculator"
-            icon="💧"
-            accent="from-sky-600 to-blue-700"
             image={TOOL_IMAGES.water.src}
+            imageAlt={TOOL_IMAGES.water.alt}
           />
         </ScrollReveal>
         <ScrollReveal delay={200}>
@@ -157,9 +155,8 @@ const articleCount = articles.length;
             title="Walking Calories"
             description="See how much your daily walk is doing for your health."
             href="/tools/walking-calorie-calculator"
-            icon="🚶"
-            accent="from-amber-500 to-orange-600"
             image={TOOL_IMAGES.walking.src}
+            imageAlt={TOOL_IMAGES.walking.alt}
           />
         </ScrollReveal>
       </div>
@@ -171,7 +168,7 @@ const articleCount = articles.length;
     <ScrollReveal>
       <div class="relative overflow-hidden rounded-3xl shadow-2xl">
         <img
-          src={HERO.src}
+          src={CATEGORY_IMAGES.wellness.src.replace('w=800', 'w=1600')}
           alt=""
           class="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
