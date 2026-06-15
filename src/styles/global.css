@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
-  --color-brand-50: #f0fdfa;
-  --color-brand-100: #ccfbf1;
-  --color-brand-200: #99f6e4;
-  --color-brand-500: #14b8a6;
-  --color-brand-600: #0d9488;
-  --color-brand-700: #0f766e;
-  --color-brand-800: #115e59;
-  --color-surface: #fafaf9;
-  --color-ink: #1c1917;
-  --color-muted: #57534e;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+
+  --color-cream: #fbf7f0;
+  --color-cream-dark: #f3ece0;
+  --color-ink: #1a2421;
+  --color-ink-soft: #3d4a45;
+  --color-muted: #5c6b64;
+
+  --color-sage-50: #eef4ef;
+  --color-sage-100: #d9e8dc;
+  --color-sage-200: #b8d4be;
+  --color-sage-300: #94b89e;
+  --color-sage-400: #6a9a78;
+  --color-sage-500: #4a7c59;
+  --color-sage-600: #3d6b4a;
+  --color-sage-700: #2f5439;
+  --color-sage-800: #234030;
+  --color-sage-900: #1a3024;
+
+  --color-gold: #c4a035;
+  --color-gold-light: #e8d48a;
+  --color-coral: #d4846a;
+
+  --color-surface: #fbf7f0;
 }
 
 html {
@@ -19,26 +33,62 @@ html {
 }
 
 body {
-  @apply bg-surface text-ink antialiased;
+  @apply bg-cream text-ink antialiased;
+  font-family: var(--font-sans);
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.75;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Subtle paper texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-sage-700 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-sage-700/20 transition hover:bg-sage-800 hover:shadow-sage-800/25;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-sage-200 bg-white/80 px-7 py-3.5 text-base font-semibold text-sage-800 backdrop-blur transition hover:border-sage-300 hover:bg-white;
+}
+
+.section-label {
+  @apply mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-gold;
+}
+
+.section-title {
+  @apply font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl;
+}
+
+.card-lift {
+  @apply transition duration-300 hover:-translate-y-1 hover:shadow-xl;
 }
 
 .prose h2 {
-  @apply mt-10 mb-4 text-2xl font-bold text-brand-800;
+  @apply font-display mt-12 mb-4 text-2xl font-bold text-sage-900;
 }
 
 .prose h3 {
-  @apply mt-8 mb-3 text-xl font-semibold text-brand-700;
+  @apply font-display mt-8 mb-3 text-xl font-semibold text-sage-800;
 }
 
 .prose p {
-  @apply mb-5 text-stone-700;
+  @apply mb-5 text-ink-soft;
 }
 
 .prose ul,
 .prose ol {
-  @apply mb-5 ml-6 space-y-2 text-stone-700;
+  @apply mb-5 ml-6 space-y-2 text-ink-soft;
 }
 
 .prose ul {
@@ -50,13 +100,45 @@ body {
 }
 
 .prose a {
-  @apply text-brand-700 underline decoration-brand-200 underline-offset-2 hover:text-brand-800;
+  @apply font-medium text-sage-700 underline decoration-sage-200 underline-offset-4 hover:text-sage-900;
 }
 
 .prose strong {
-  @apply font-semibold text-stone-900;
+  @apply font-semibold text-ink;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gold pl-5 italic text-ink-soft;
 }
 
 .ad-placeholder {
-  @apply flex min-h-[90px] items-center justify-center rounded-lg border border-dashed border-stone-300 bg-stone-50 text-sm text-stone-400;
+  @apply flex min-h-[90px] items-center justify-center rounded-2xl border border-dashed border-sage-200 bg-sage-50/50 text-sm text-muted;
+}
+
+.tool-panel {
+  @apply overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-sage-100;
+}
+
+.tool-panel-header {
+  @apply bg-gradient-to-r from-sage-700 to-sage-800 px-6 py-5;
+}
+
+.form-input {
+  @apply w-full rounded-xl border border-sage-200 bg-cream/50 px-4 py-3.5 text-ink transition focus:border-sage-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-sage-200;
+}
+
+.form-label {
+  @apply mb-1.5 block text-sm font-semibold text-ink-soft;
+}
+
+.form-submit {
+  @apply w-full rounded-xl bg-sage-700 py-3.5 font-semibold text-white shadow-md shadow-sage-700/20 transition hover:bg-sage-800;
+}
+
+.result-box {
+  @apply mt-6 rounded-2xl bg-gradient-to-br from-sage-50 to-sage-100 p-6 text-center ring-1 ring-sage-200;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-sage-700 via-sage-600 to-gold bg-clip-text text-transparent;
 }

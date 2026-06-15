@@ -2,14 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
-import { CATEGORIES } from '../../lib/site';
+import { CATEGORIES, getCategory } from '../../lib/site';
 
 export async function getStaticPaths() {
   return CATEGORIES.map((cat) => ({ params: { category: cat.slug } }));
 }
 
 const { category: categorySlug } = Astro.params;
-const category = CATEGORIES.find((c) => c.slug === categorySlug);
+const category = getCategory(categorySlug as import('../../lib/site').CategorySlug);
 
 if (!category) {
   return Astro.redirect('/articles');
@@ -21,9 +21,15 @@ const articles = (await getCollection('articles'))
 ---
 
 <BaseLayout title={`${category.name} Articles`} description={category.description}>
-  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-    <h1 class="mb-3 text-3xl font-bold text-stone-900">{category.name}</h1>
-    <p class="mb-10 max-w-2xl text-stone-600">{category.description}</p>
+  <section class:list={['bg-gradient-to-br py-14 sm:py-16', category.gradient]}>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <span class="text-5xl" aria-hidden="true">{category.icon}</span>
+      <h1 class="font-display mt-4 text-4xl font-bold text-white sm:text-5xl">{category.name}</h1>
+      <p class="mt-3 max-w-2xl text-lg text-white/85">{category.description}</p>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
     {
       articles.length === 0 ? (
         <p class="text-muted">Articles coming soon in this category.</p>

@@ -1,0 +1,76 @@
+<svg
+  class="h-full w-full"
+  viewBox="0 0 480 420"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f0ea" />
+      <stop offset="100%" stop-color="#fbf7f0" />
+    </linearGradient>
+    <linearGradient id="hill-back" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b8d4be" />
+      <stop offset="100%" stop-color="#8fbf9a" />
+    </linearGradient>
+    <linearGradient id="hill-front" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a7c59" />
+      <stop offset="100%" stop-color="#3d6b4a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="420" fill="url(#sky)" rx="24" />
+
+  <!-- Sun -->
+  <circle cx="380" cy="72" r="44" fill="#e8d48a" opacity="0.9" />
+  <circle cx="380" cy="72" r="56" fill="#e8d48a" opacity="0.25" />
+
+  <!-- Back hill -->
+  <ellipse cx="240" cy="340" rx="280" ry="100" fill="url(#hill-back)" opacity="0.6" />
+
+  <!-- Front hill -->
+  <path
+    d="M-20 420 L-20 280 Q120 220 240 260 Q360 300 500 240 L500 420 Z"
+    fill="url(#hill-front)"
+    opacity="0.85"
+  />
+
+  <!-- Path -->
+  <path
+    d="M180 420 Q220 340 260 300 Q300 260 340 240"
+    stroke="#e8d48a"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-dasharray="12 8"
+    opacity="0.7"
+    fill="none"
+  />
+
+  <!-- Trees -->
+  <circle cx="80" cy="260" r="28" fill="#2f5439" opacity="0.7" />
+  <rect x="76" y="260" width="8" height="40" fill="#3d4a45" opacity="0.5" rx="2" />
+  <circle cx="400" cy="220" r="22" fill="#2f5439" opacity="0.6" />
+  <rect x="397" y="220" width="6" height="32" fill="#3d4a45" opacity="0.5" rx="2" />
+
+  <!-- Person walking — stylized, dignified -->
+  <g transform="translate(290, 195)">
+    <!-- head -->
+    <circle cx="0" cy="0" r="14" fill="#d4846a" />
+    <!-- hair -->
+    <path d="M-12 -4 Q0 -18 12 -4" fill="#5c4a3a" />
+    <!-- body -->
+    <path d="M0 14 L0 58" stroke="#2f5439" stroke-width="5" stroke-linecap="round" />
+    <!-- arms -->
+    <path d="M0 28 L-18 42 M0 28 L16 36" stroke="#2f5439" stroke-width="4" stroke-linecap="round" />
+    <!-- legs -->
+    <path d="M0 58 L-14 88 M0 58 L14 82" stroke="#234030" stroke-width="5" stroke-linecap="round" />
+    <!-- walking stick -->
+    <path d="M18 36 L24 90" stroke="#c4a035" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Floating leaves -->
+  <ellipse cx="120" cy="120" rx="8" ry="14" fill="#4a7c59" opacity="0.4" transform="rotate(-30 120 120)" />
+  <ellipse cx="350" cy="150" rx="6" ry="11" fill="#4a7c59" opacity="0.35" transform="rotate(20 350 150)" />
+  <ellipse cx="200" cy="90" rx="7" ry="12" fill="#8fbf9a" opacity="0.45" transform="rotate(-10 200 90)" />
+</svg>

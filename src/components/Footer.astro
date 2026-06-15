@@ -1,42 +1,72 @@
 ---
-import { SITE, CATEGORIES } from '../lib/site';
+import { SITE, CATEGORIES, NAV_LINKS } from '../lib/site';
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-16 border-t border-stone-200 bg-white">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
-    <div>
-      <p class="text-lg font-bold text-brand-800">{SITE.name}</p>
-      <p class="mt-2 text-sm text-muted">{SITE.description}</p>
+<footer class="mt-20 bg-sage-900 text-sage-100">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-sage-700">
+            <svg class="h-5 w-5 text-gold-light" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 3c-3 0-5 2.5-5 6 0 4 2 8 5 12 3-4 5-8 5-12 0-3.5-2-6-5-6z"></path>
+            </svg>
+          </span>
+          <p class="font-display text-xl font-bold text-white">{SITE.name}</p>
+        </div>
+        <p class="mt-4 max-w-md text-sm leading-relaxed text-sage-200">
+          {SITE.description}
+        </p>
+        <a
+          href={`mailto:${SITE.email}`}
+          class="mt-4 inline-block text-sm font-medium text-gold-light hover:text-white"
+        >
+          {SITE.email}
+        </a>
+      </div>
+
+      <div>
+        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-gold">Explore</p>
+        <ul class="space-y-2.5 text-sm">
+          {
+            NAV_LINKS.map((link) => (
+              <li>
+                <a href={link.href} class="text-sage-200 transition hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-gold">Topics</p>
+        <ul class="space-y-2.5 text-sm">
+          {
+            CATEGORIES.map((cat) => (
+              <li>
+                <a href={`/category/${cat.slug}`} class="text-sage-200 transition hover:text-white">
+                  {cat.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
 
-    <div>
-      <p class="mb-3 font-semibold text-stone-900">Topics</p>
-      <ul class="space-y-2 text-sm">
-        {
-          CATEGORIES.slice(0, 4).map((cat) => (
-            <li>
-              <a href={`/category/${cat.slug}`} class="text-muted hover:text-brand-700">
-                {cat.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    <div class="mt-12 flex flex-col gap-4 border-t border-sage-700 pt-8 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm text-sage-300">
+        © {year} {SITE.name}. For informational purposes only — not medical advice.
+      </p>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a href="/privacy" class="text-sage-300 hover:text-white">Privacy</a>
+        <a href="/terms" class="text-sage-300 hover:text-white">Terms</a>
+        <a href="/disclaimer" class="text-sage-300 hover:text-white">Disclaimer</a>
+        <a href="/contact" class="text-sage-300 hover:text-white">Contact</a>
+      </div>
     </div>
-
-    <div>
-      <p class="mb-3 font-semibold text-stone-900">Legal</p>
-      <ul class="space-y-2 text-sm">
-        <li><a href="/privacy" class="text-muted hover:text-brand-700">Privacy Policy</a></li>
-        <li><a href="/terms" class="text-muted hover:text-brand-700">Terms of Use</a></li>
-        <li><a href="/disclaimer" class="text-muted hover:text-brand-700">Medical Disclaimer</a></li>
-        <li><a href="/contact" class="text-muted hover:text-brand-700">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="border-t border-stone-100 px-4 py-4 text-center text-sm text-muted">
-    © {year} {SITE.name}. For informational purposes only — not medical advice.
   </div>
 </footer>

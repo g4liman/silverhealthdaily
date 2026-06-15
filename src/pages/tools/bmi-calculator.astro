@@ -7,54 +7,63 @@ import AdSlot from '../../components/AdSlot.astro';
   title="BMI Calculator for Adults 50+"
   description="Free BMI calculator with plain-language results for adults 50 and older."
 >
-  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <h1 class="mb-3 text-3xl font-bold text-stone-900">BMI Calculator</h1>
-    <p class="mb-8 text-stone-600">
-      Body Mass Index (BMI) is a screening tool, not a diagnosis. Muscle mass and body composition
-      matter — especially as we age. Discuss results with your doctor.
-    </p>
+  <section class="bg-gradient-to-br from-emerald-600 to-teal-700 py-12">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <span class="text-4xl">⚖️</span>
+      <h1 class="font-display mt-3 text-3xl font-bold text-white sm:text-4xl">BMI Calculator</h1>
+      <p class="mt-2 text-white/85">
+        A screening tool, not a diagnosis. Muscle mass matters — especially as we age.
+      </p>
+    </div>
+  </section>
 
-    <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
+  <div class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <div class="tool-panel">
+      <div class="tool-panel-header">
+        <p class="font-semibold text-white">Enter your details</p>
+      </div>
+      <div class="p-6">
       <form id="bmi-form" class="space-y-5">
         <div>
-          <label for="unit" class="mb-1 block font-medium">Units</label>
-          <select id="unit" class="w-full rounded-lg border border-stone-300 px-4 py-3">
+          <label for="unit" class="form-label">Units</label>
+          <select id="unit" class="form-input">
             <option value="imperial">Imperial (lb, ft/in)</option>
             <option value="metric">Metric (kg, cm)</option>
           </select>
         </div>
         <div id="imperial-fields" class="grid gap-4 sm:grid-cols-2">
           <div>
-            <label for="weight-lb" class="mb-1 block font-medium">Weight (lb)</label>
-            <input id="weight-lb" type="number" min="50" max="500" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+            <label for="weight-lb" class="form-label">Weight (lb)</label>
+            <input id="weight-lb" type="number" min="50" max="500" class="form-input" />
           </div>
           <div>
-            <label for="height-ft" class="mb-1 block font-medium">Height (ft)</label>
-            <input id="height-ft" type="number" min="3" max="8" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+            <label for="height-ft" class="form-label">Height (ft)</label>
+            <input id="height-ft" type="number" min="3" max="8" class="form-input" />
           </div>
           <div>
-            <label for="height-in" class="mb-1 block font-medium">Height (in)</label>
-            <input id="height-in" type="number" min="0" max="11" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+            <label for="height-in" class="form-label">Height (in)</label>
+            <input id="height-in" type="number" min="0" max="11" class="form-input" />
           </div>
         </div>
         <div id="metric-fields" class="hidden grid gap-4 sm:grid-cols-2">
           <div>
-            <label for="weight-kg" class="mb-1 block font-medium">Weight (kg)</label>
-            <input id="weight-kg" type="number" min="20" max="250" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+            <label for="weight-kg" class="form-label">Weight (kg)</label>
+            <input id="weight-kg" type="number" min="20" max="250" class="form-input" />
           </div>
           <div>
-            <label for="height-cm" class="mb-1 block font-medium">Height (cm)</label>
-            <input id="height-cm" type="number" min="100" max="250" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+            <label for="height-cm" class="form-label">Height (cm)</label>
+            <input id="height-cm" type="number" min="100" max="250" class="form-input" />
           </div>
         </div>
-        <button type="submit" class="w-full rounded-lg bg-brand-600 py-3 font-semibold text-white hover:bg-brand-700">
+        <button type="submit" class="form-submit">
           Calculate BMI
         </button>
       </form>
-      <div id="bmi-result" class="mt-6 hidden rounded-xl bg-brand-50 p-5 text-center">
-        <p class="text-sm text-muted">Your BMI</p>
-        <p id="bmi-value" class="text-4xl font-bold text-brand-800"></p>
-        <p id="bmi-category" class="mt-2 font-medium text-stone-800"></p>
+      <div id="bmi-result" class="result-box hidden">
+        <p class="text-sm font-medium text-muted">Your BMI</p>
+        <p id="bmi-value" class="font-display text-5xl font-bold text-sage-800"></p>
+        <p id="bmi-category" class="mt-2 font-medium text-ink-soft"></p>
+      </div>
       </div>
     </div>
 

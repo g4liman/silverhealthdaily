@@ -1,36 +1,46 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ToolCard from '../../components/ToolCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
 ---
 
 <BaseLayout
   title="Free Health Tools"
   description="Free BMI, water intake, and walking calorie calculators for adults 50+."
 >
-  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-    <h1 class="mb-3 text-3xl font-bold text-stone-900">Free health tools</h1>
-    <p class="mb-10 max-w-2xl text-stone-600">
-      Simple calculators to support everyday wellness decisions. Results are estimates — not
-      medical advice.
-    </p>
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+  <section class="border-b border-sage-100 bg-gradient-to-b from-sage-50 to-cream py-14">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <SectionHeading
+        label="Calculators"
+        title="Free health tools"
+        description="Simple calculators to support everyday wellness. Results are estimates — not medical advice."
+        centered
+      />
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <ToolCard
         title="BMI Calculator"
-        description="Calculate body mass index and see general weight categories."
+        description="Calculate body mass index with plain-language results."
         href="/tools/bmi-calculator"
         icon="⚖️"
+        accent="from-emerald-600 to-teal-700"
       />
       <ToolCard
         title="Water Intake Calculator"
         description="Estimate how much water to drink daily."
         href="/tools/water-intake-calculator"
         icon="💧"
+        accent="from-sky-600 to-blue-700"
       />
       <ToolCard
         title="Walking Calorie Calculator"
         description="Estimate calories burned while walking."
         href="/tools/walking-calorie-calculator"
         icon="🚶"
+        accent="from-amber-500 to-orange-600"
       />
     </div>
   </div>
